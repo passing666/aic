@@ -11,6 +11,7 @@ models/
 
 # Training outputs and local reports
 runs/
+outputs/submissions/
 outputs/official_train_dataset_report.json
 outputs/sample_dataset_report.json
 outputs/splits/*.csv

@@ -1,0 +1,77 @@
+{
+  "checkpoint": "/root/autodl-tmp/runs/exp002_size768/best_model",
+  "validation_samples": 1399,
+  "class_names": [
+    "Ignore",
+    "Background",
+    "Building",
+    "Road",
+    "Water",
+    "Barren",
+    "Vegetation",
+    "Agricultural",
+    "Vehicle"
+  ],
+  "scenarios": [
+    {
+      "brightness": 1.0,
+      "contrast": 1.0,
+      "image_size": 768,
+      "samples": 1399,
+      "miou": 0.7625840996362337,
+      "ious": [
+        null,
+        0.6885846114574198,
+        0.8334129193631572,
+        0.8054720580664398,
+        0.8685899338754738,
+        0.5436524503781536,
+        0.8761525025239718,
+        0.757429022289118,
+        0.7273792991361362
+      ],
+      "predicted_ignore_ratio_on_valid_pixels": 0.0,
+      "elapsed_seconds": 76.93974804878235
+    },
+    {
+      "brightness": 1.1,
+      "contrast": 1.0,
+      "image_size": 768,
+      "samples": 1399,
+      "miou": 0.7622576526125984,
+      "ious": [
+        null,
+        0.6876986422687521,
+        0.8322942346777416,
+        0.8056585754088845,
+        0.8687457971751326,
+        0.5431572496555187,
+        0.876101689723626,
+        0.7572526694199482,
+        0.7271523625711838
+      ],
+      "predicted_ignore_ratio_on_valid_pixels": 0.0,
+      "elapsed_seconds": 80.66183376312256
+    },
+    {
+      "brightness": 1.1,
+      "contrast": 1.05,
+      "image_size": 768,
+      "samples": 1399,
+      "miou": 0.7612666438450605,
+      "ious": [
+        null,
+        0.686900743939522,
+        0.8311215600474541,
+        0.8052019012932639,
+        0.8684749628249943,
+        0.5410319394610009,
+        0.8758483475132097,
+        0.7569929944073395,
+        0.7245607012736998
+      ],
+      "predicted_ignore_ratio_on_valid_pixels": 0.0,
+      "elapsed_seconds": 90.33809161186218
+    }
+  ]
+}

@@ -10,42 +10,7 @@ import torch
 from torch.utils.data import DataLoader
 from transformers import SegformerForSemanticSegmentation
 
-from train import CLASS_NAMES, IGNORE_INDEX, NUM_CLASSES, SegmentationDataset
-
-
-def evaluate_checkpoint(
-    model: torch.nn.Module,
-    loader: DataLoader,
-    device: torch.device,
-) -> tuple[float, list[float | None], float]:
-    model.eval()
-    total_intersection = [0] * NUM_CLASSES
-    total_union = [0] * NUM_CLASSES
-    total_valid_pixels = 0
-    total_predicted_ignore = 0
-    with torch.no_grad():
-        for images, masks in loader:
-            outputs = model(pixel_values=images.to(device)).logits
-            outputs = torch.nn.functional.interpolate(
-                outputs, size=masks.shape[-2:], mode="bilinear", align_corners=False
-            )
-            predictions = outputs.argmax(dim=1).cpu()
-            valid = masks != IGNORE_INDEX
-            total_valid_pixels += int(valid.sum())
-            total_predicted_ignore += int(((predictions == IGNORE_INDEX) & valid).sum())
-            for class_id in range(1, NUM_CLASSES):
-                predicted = (predictions == class_id) & valid
-                actual = (masks == class_id) & valid
-                total_intersection[class_id] += int((predicted & actual).sum())
-                total_union[class_id] += int((predicted | actual).sum())
-    ious = [None] + [
-        total_intersection[class_id] / total_union[class_id] if total_union[class_id] else None
-        for class_id in range(1, NUM_CLASSES)
-    ]
-    valid_ious = [value for value in ious if value is not None]
-    miou = sum(valid_ious) / len(valid_ious) if valid_ious else 0.0
-    predicted_ignore_ratio = total_predicted_ignore / total_valid_pixels if total_valid_pixels else 0.0
-    return miou, ious, predicted_ignore_ratio
+from train import CLASS_NAMES, SegmentationDataset, evaluate
 
 
 def main() -> int:
@@ -76,7 +41,7 @@ def main() -> int:
         pin_memory=device.type == "cuda",
     )
     model = SegformerForSemanticSegmentation.from_pretrained(args.checkpoint).to(device)
-    miou, ious, predicted_ignore_ratio = evaluate_checkpoint(model, loader, device)
+    miou, ious, predicted_ignore_ratio = evaluate(model, loader, device)
     result = {
         "checkpoint": str(args.checkpoint),
         "image_size": args.image_size,

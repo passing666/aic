@@ -1,0 +1,58 @@
+{
+  "predictions": "/root/autodl-tmp/submissions/exp002_resize768",
+  "images_dir": "/root/autodl-tmp/2026-低空图像语义分割赛道-训练集/test_1/images",
+  "image_count": 500,
+  "prediction_count": 500,
+  "size": [
+    1024,
+    1024
+  ],
+  "visualization_count": 20,
+  "classes": {
+    "0": {
+      "name": "Ignore",
+      "pixels": 0,
+      "ratio": 0.0
+    },
+    "1": {
+      "name": "Background",
+      "pixels": 154286660,
+      "ratio": 0.29427845001220704
+    },
+    "2": {
+      "name": "Building",
+      "pixels": 107599717,
+      "ratio": 0.20523017311096192
+    },
+    "3": {
+      "name": "Road",
+      "pixels": 42926732,
+      "ratio": 0.0818762435913086
+    },
+    "4": {
+      "name": "Water",
+      "pixels": 32771045,
+      "ratio": 0.06250580787658691
+    },
+    "5": {
+      "name": "Barren",
+      "pixels": 3252995,
+      "ratio": 0.006204595565795898
+    },
+    "6": {
+      "name": "Vegetation",
+      "pixels": 143561380,
+      "ratio": 0.2738216018676758
+    },
+    "7": {
+      "name": "Agricultural",
+      "pixels": 36514949,
+      "ratio": 0.06964673805236817
+    },
+    "8": {
+      "name": "Vehicle",
+      "pixels": 3374522,
+      "ratio": 0.006436389923095703
+    }
+  }
+}

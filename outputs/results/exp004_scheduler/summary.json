@@ -1,0 +1,12 @@
+{
+  "best_epoch": 56,
+  "best_miou": 0.7859696951630004,
+  "final_miou": 0.7854496997285826,
+  "final_epoch": 60,
+  "latest_checkpoint": "/root/autodl-tmp/runs/exp004_scheduler/latest_checkpoint.pt",
+  "best_checkpoint": "/root/autodl-tmp/runs/exp004_scheduler/best_checkpoint.pt",
+  "resumed_from": null,
+  "elapsed_seconds": 12273.970442056656,
+  "elapsed_minutes": 204.5661740342776,
+  "session_elapsed_seconds": 12280.685738801956
+}

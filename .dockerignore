@@ -1,0 +1,10 @@
+.git
+.venv
+.venv-1
+__pycache__
+*.pyc
+2026-低空图像语义分割赛道-训练集
+Examples
+models
+runs
+outputs
